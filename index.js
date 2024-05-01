@@ -22,7 +22,7 @@ class Calculator {
         // If there is a '.' in the number and the currentOperand already contains a '.', end the function by returning. I.E do not append a '.'
         if (number === '.' && this.currentOperand.includes('.')) return;
         // Coverting the numbers to a string as JS will try to add the numbers together instead of appending ie putting onto the end
-        this.currentOperand = this.currentOperand.toString() + number.toString();
+        this.currentOperand = number
 
     }
 
@@ -40,7 +40,7 @@ class Calculator {
 
     compute() {
         let computation;
-        // parseFloat() converts the string into a number, until it reaches a value that is not a number
+    //     // parseFloat() converts the string into a number, until it reaches a value that is not a number
         const prev = parseFloat(this.previousOperand);   
         const current = parseFloat(this.currentOperand);
         if (isNaN(prev) || isNaN(current)) return;
@@ -120,55 +120,7 @@ deleteButton.addEventListener('click', button => {
     calculator.updateDisplay();
 })
 
-// class Calculator {
-//     constructor(currentOperandTextElement, previousOperandTextElement){
-//         this.currentOperandTextElement = currentOperandTextElement
-//         this.previousOperandTextElement = previousOperandTextElement
-//         this.clear()
-//     }
 
-//     clear (){
-//         this.currentOperandTextElement = ''
-//         this.previousOperandTextElement = ''
-//         this.operation = undefined
-//     }
 
-//     delete (){
 
-//     }
 
-//     compute (){
-
-//     }
-
-//     appendNumber (number){
-//         this.currentOperand = number
-
-//     }
-
-//     updateDisplay(){
-//         this.currentOperandTextElement.innerText = this.currentOperand
-
-//     }
-
-//     chooseOperation(){
-
-//     }
-// }
-
-// const operationButtons = document.querySelectorAll('[data-operation]')
-// const numberButtons = document.querySelectorAll('[data-number]')
-// const equalsButton = document.querySelector('[data-equals]')
-// const deleteButton = document.querySelector('[data-delete]')
-// const allClearButton = document.querySelector('[data-all-clear]')
-// const currentOperandTextElement = document.querySelector('[data-current-operand]')
-// const previousOperandTextElement = document.querySelector('[data-previous-operand]')
-
-// const calculator = new Calculator (currentOperandTextElement, previousOperandTextElement)
-
-// numberButtons.forEach (button => {
-//     button.addEventListener('click', () => {
-//         calculator.appendNumber(button.innerText)
-//         this.updateDisplay()
-//     })
-// })
